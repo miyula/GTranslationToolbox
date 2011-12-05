@@ -30,15 +30,15 @@ function GTranslationToolbox_init() {
  * Implementation of hook_menu().
  */
 function GTranslationToolbox_menu() {
-  /*$items['admin/settings/translation'] = array(
-    'title' => 'Translation settings',
-    'description' => 'Configure google API key for translation.',
+  $items['admin/settings/gtranslate'] = array(
+    'title' => 'Google Translating Tool settings',
+    'description' => 'Configure translation tools.',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('translation_admin_settings'),
+    'page arguments' => array('gtranslation_admin_settings_form'),
     'access arguments' => array('administer site configuration'),
     'type' => MENU_NORMAL_ITEM,
   );
-  $items['node/%node/gtranslate'] = array(
+  /*$items['node/%node/gtranslate'] = array(
     'title' => 'Translate',
     'page callback' => 'gtranslate',
     'page arguments' => array(1, 'node'),
@@ -146,3 +146,25 @@ function Google_Translation_Tool_form(){
     return $form;
 }
 
+/** form for set translate tool **/
+function gtranslation_admin_settings_form(){
+    $form['content-translate'] = array(
+        '#type' => 'radios',
+        '#title' => t('Content page translate tool bar'),
+        '#options' => array('enable'=>'Enable', 'disable'=>'Disable'),
+        '#required' => TRUE,
+        '#default_value' => variable_get('open_g_translation_widget', 'disable'),
+    );
+    $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => t('Save'),
+    );
+    return $form;
+}
+function gtranslation_admin_settings_form_submit($form, &$form_state){
+    $content = $form_state['values']['content-translate'];
+    if($content){
+        variable_set('open_g_translation_widget', $content);
+        drupal_set_message(t('Saved the configuration'));
+    }
+}
