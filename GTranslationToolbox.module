@@ -62,8 +62,8 @@ function gtranslate($node){
     $content = node_view($node);
     $content = "<div id='translate-box' style='margin:10px auto;'>"
 		."<select name='language-list' id='content-target-translate-language'></select>"
-		."<input type='button' value='Translate it' onclick='content_translate_onclick();'/>"
-		."<input type='button' value='Show Original' onclick='content_original_onclick();'/>"
+		."<button type='button' onclick='content_translate_onclick();'>Translate</button>"
+		."<button type='button' onclick='content_original_onclick();'>Show Original</button>"
 		."</div>"
 	       .'<div id="translate-content">'.$content.'</div>'
 	       .'<script type="text/javascript">
@@ -84,8 +84,8 @@ function add_translation_widget($content){
     drupal_add_js(drupal_get_path("module","GTranslationToolbox").'/js/translation_panel.js');
     $new_content = "<div id='translate-box' style='margin:10px auto;'>"
 		."<select name='language-list' id='content-target-translate-language'></select>"
-		."<input type='button' value='Translate it' onclick='content_translate_onclick();'/>"
-		."<input type='button' value='Show Original' onclick='content_original_onclick();'/>"
+		."<button type='button' onclick='content_translate_onclick();'>Translate</button>"
+		."<button type='button' onclick='content_original_onclick();'>Show Original</button>"
 		."</div>"
 	        .'<div id="translate-content">'.$content.'</div>'
 	        .'<script type="text/javascript">

@@ -1,6 +1,9 @@
         var tlangCode = 'zh-CN';
         var elist = new Array();
-        google.load("language", "1");
+        google.load("elements", "1", {
+            packages: "transliterate"
+        });
+        
         if(Drupal.jsEnabled)
         {
             $(document).ready(

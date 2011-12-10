@@ -1,6 +1,8 @@
 //jquery.js is required for this js file
 
-google.load("language", "1");      
+google.load("elements", "1", {
+  packages: "transliterate"
+  });     
 
 /**
  * Translate the target div, and add a translation panel on it

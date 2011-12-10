@@ -1,6 +1,10 @@
+// required jQuery
 var content_HTML;
 
-google.load("language", "1");
+google.load("elements", "1", {
+  packages: "transliterate"
+  });
+  
 if(Drupal.jsEnabled)
 {
     $(document).ready(
@@ -43,13 +47,6 @@ if(Drupal.jsEnabled)
 		    }
 		}
 	    );
-	    
-	   /* document.oncontextmenu = function(){
-		alert("?");
-	    }
-	    document.body.onclick = function(){
-		alert('!');
-	    }*/
 	}
 	
     );

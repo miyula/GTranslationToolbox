@@ -1,7 +1,10 @@
 var original_text;
 var translated_text;
 var langCode;
-google.load("language", "1");
+google.load("elements", "1", {
+  packages: "transliterate"
+  });
+  
 if(Drupal.jsEnabled)
 {
     $(document).ready(
