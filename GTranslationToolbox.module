@@ -46,14 +46,14 @@ function GTranslationToolbox_menu() {
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
     );*/
-  $items['node/%node'] = array(
+  /*$items['node/%node'] = array(
     'title' => 'Translate',
     'page callback' => 'gtranslate',
     'page arguments' => array(1, 'node'),
     'access arguments'=> array('access content'),
     'type' => MENU_LOCAL_TASK,
     'weight' => 100,
-    );
+    );*/
   return $items;
 }
 function gtranslate($node){
